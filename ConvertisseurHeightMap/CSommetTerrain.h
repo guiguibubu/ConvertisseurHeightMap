@@ -1,1 +1,5 @@
-#pragma once
+#ifndef C_SOMMET_TERRAIN_H
+
+#define C_SOMMET_TERRAIN_H
+
+#endif // !C_SOMMET_TERRAIN_H
