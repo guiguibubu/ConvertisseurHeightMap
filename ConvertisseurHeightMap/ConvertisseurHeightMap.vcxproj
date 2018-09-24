@@ -153,6 +153,9 @@
   <ItemGroup>
     <Text Include="..\Map\heightMap.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Sujet\RUSH_1.pdf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -38,4 +38,9 @@
       <Filter>Fichiers de ressources</Filter>
     </Text>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Sujet\RUSH_1.pdf">
+      <Filter>Fichiers de ressources</Filter>
+    </None>
+  </ItemGroup>
 </Project>
