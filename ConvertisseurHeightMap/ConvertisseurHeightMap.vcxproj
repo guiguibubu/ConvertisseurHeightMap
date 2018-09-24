@@ -144,11 +144,17 @@
   <ItemGroup>
     <ClCompile Include="Conversion.cpp" />
     <ClCompile Include="ConvertisseurHeightMap.cpp" />
-    <ClCompile Include="CSommetTerrain.cpp" />
+    <ClCompile Include="Sauvegarde.cpp" />
+    <ClCompile Include="SommetTerrain.cpp" />
+    <ClCompile Include="Terrain.cpp" />
+    <ClCompile Include="toolsProjet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ConvertisseurHeightMap.h" />
-    <ClInclude Include="CSommetTerrain.h" />
+    <ClInclude Include="Sauvegarde.h" />
+    <ClInclude Include="SommetTerrain.h" />
+    <ClInclude Include="Terrain.h" />
+    <ClInclude Include="toolsProjet.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Map\heightMap.txt" />

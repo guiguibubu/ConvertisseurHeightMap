@@ -8,16 +8,20 @@ using std::cin;
 using std::string;
 using std::getline;
 
+using namespace PM3D;
+
 int main() {
 
-   ConvertisseurHeightMap convertisseurHeightMap;
+   convertFloatIntoBinary(2.25125f);
 
-   convertisseurHeightMap.afficherSommetsXYZ(cout);
-   convertisseurHeightMap.afficherHeightMapPath(cout);
-   convertisseurHeightMap.afficherNbLigne (cout);
-   convertisseurHeightMap.afficherNbColonne(cout);
-   convertisseurHeightMap.afficherNbSommets(cout);
-   convertisseurHeightMap.afficherNbPolygone(cout);
+   ConvertisseurHeightMap convertisseurHeightMap;
+   convertisseurHeightMap.lireFichierHeightMap();
+
+   cout << convertisseurHeightMap << endl;
+
+   convertisseurHeightMap.construireTerrain(1.0f, 1.0f);
+   convertisseurHeightMap.construireIndex();
+   convertisseurHeightMap.calculerNormales();
 
 
    /*LireFichierHeightMap();
@@ -25,7 +29,6 @@ int main() {
    CalculerNormales();
    ConstruireIndex();
    EnregistrerTout();*/
-
    cout << "\n";
    cout << "--------------------------------------------" << endl;
    cout << "Appuyer sur 'Enter' pour fermer le programme" << endl;
