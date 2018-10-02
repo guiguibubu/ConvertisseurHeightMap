@@ -15,6 +15,10 @@
 namespace PM3D {
    class ConvertisseurHeightMap {
 
+   public:
+      static inline const std::string HEIGHTMAP_PATH_DEFAULT{ "./../Map/heightMap.txt" };
+      static inline const std::string HEIGHTMAP_SAVEFILE_PATH_DEFAULT{ "./../Save/sauvegardeHeightMap.gbhm" };
+
    private:
       std::vector<SommetTerrain> sommets; // liste des sommets
       int dx = 1, dy = 1; // dimension en X et en Y (ecart entre 2 points)
@@ -25,7 +29,7 @@ namespace PM3D {
 
    public:
       ConvertisseurHeightMap(std::string heightMapPath) : heightMapPath{ heightMapPath } {}; // Constructeur
-      ConvertisseurHeightMap() : ConvertisseurHeightMap("./../Map/heightMap.txt") {} // Constructeur par defaut
+      ConvertisseurHeightMap() : ConvertisseurHeightMap(HEIGHTMAP_PATH_DEFAULT) {} // Constructeur par defaut
 
       ~ConvertisseurHeightMap() = default; // Destructeur
 

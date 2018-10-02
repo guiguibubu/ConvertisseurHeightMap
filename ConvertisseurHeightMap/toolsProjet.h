@@ -8,9 +8,14 @@
 
 namespace PM3D {
 
-   void printIntoStream(std::ostream& stream, std::string text);
+   template<class T> void printIntoStream(std::ostream& stream, T n, bool retourLigne) {
+      (retourLigne) ? stream << n << std::endl : stream << n;
+   }
 
-   void convertFloatIntoBinary(float number);
+   template<class T> void printIntoStream(std::ostream& stream, T n) {
+      printIntoStream(stream, n, true);
+   }
+
 }
 #endif
 

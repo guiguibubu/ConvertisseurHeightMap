@@ -1,5 +1,6 @@
 #include "ConvertisseurHeightMap.h"
-
+#include "Sauvegarde.h"
+#include <string>
 
 namespace PM3D {
    void ConvertisseurHeightMap::lireFichierHeightMap() {
@@ -41,7 +42,7 @@ namespace PM3D {
    }
 
    void ConvertisseurHeightMap::calculerNormales() {
-      for (SommetTerrain sommet : sommets) {
+      for (SommetTerrain& sommet : sommets) {
          int x = sommet.position.x;
          int y = sommet.position.y;
          sommet.normal = calculerNormale(x, y);
@@ -81,9 +82,15 @@ namespace PM3D {
       return resultat;
    }
 
+   void ConvertisseurHeightMap::enregistrerTout() {
+      Sauvegarde sauvegarde = Sauvegarde::Sauvegarde(HEIGHTMAP_SAVEFILE_PATH_DEFAULT, dx, dy, nbColones, nbLignes, terrain.getListeTriangle(), terrain.pIndices);
+      sauvegarde.save();
+   }
+
    void ConvertisseurHeightMap::afficherSommetsXYZ(std::ostream& stream) {
+      printIntoStream(stream, "Sommets lecture et calcul normales : ");
       for (SommetTerrain sommetTerrain : sommets) {
-         printIntoStream(stream, "x = " + std::to_string(sommetTerrain.position.x) + " y = " + std::to_string(sommetTerrain.position.y) + " z = " + std::to_string(sommetTerrain.position.z));
+         printIntoStream(stream, "x = " + std::to_string(sommetTerrain.position.x) + " y = " + std::to_string(sommetTerrain.position.y) + " z = " + std::to_string(sommetTerrain.position.z) + " nx = " + std::to_string(sommetTerrain.normal.x) + " ny = " + std::to_string(sommetTerrain.normal.y) + " nz = " + std::to_string(sommetTerrain.normal.z));
       }
    }
 

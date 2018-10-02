@@ -12,17 +12,28 @@ using namespace PM3D;
 
 int main() {
 
-   convertFloatIntoBinary(2.25125f);
-
    ConvertisseurHeightMap convertisseurHeightMap;
    convertisseurHeightMap.lireFichierHeightMap();
 
-   cout << convertisseurHeightMap << endl;
-
+   convertisseurHeightMap.calculerNormales();
    convertisseurHeightMap.construireTerrain(1.0f, 1.0f);
    convertisseurHeightMap.construireIndex();
-   convertisseurHeightMap.calculerNormales();
+   convertisseurHeightMap.enregistrerTout();
 
+   cout << "--------------------------------------------" << endl;
+   cout << "Valeurs lues dans la HeightMap puis converties :" << endl;
+   cout << "--------------------------------------------" << endl;
+   cout << convertisseurHeightMap << endl;
+   
+   // Maintenant on recupere les donnees sauvegardees
+   cout << "--------------------------------------------" << endl;
+   cout << "Valeurs lue dans la sauvegarde :" << endl;
+   cout << "--------------------------------------------" << endl;
+   Sauvegarde sauvegarde = Sauvegarde::Sauvegarde(ConvertisseurHeightMap::HEIGHTMAP_SAVEFILE_PATH_DEFAULT);
+   sauvegarde.read();
+   Terrain terrain = Terrain::Terrain(sauvegarde);
+
+   cout << terrain << endl;
 
    /*LireFichierHeightMap();
    ConstruireTerrain(1.0f, 1.0f);
