@@ -13,20 +13,26 @@ namespace PM3D {
 
       int i = 0;
       while (in >> entierLu) {
-         // 1ere ligne correspond aux nombres de lignes
+         // 1ere ligne correspond aux nombres de lignes et de colonnes
          if (i == 0) {
             nbLignes = entierLu;
          }
-         // 2eme ligne correspond aux nombres de colonnes
          else if (i == 1) {
             nbColones = entierLu;
          }
+         // 2eme ligne correspond aux dx et dy
+         else if (i == 2) {
+            dx = entierLu;
+         }
+         else if (i == 3) {
+            dy = entierLu;
+         }
          // On lit la hauteurs pour chaque sommet suivant l'axe des "x" croissant puis l'axe des "y" croissants
          else {
-            indexColonne = (i - 2) % nbColones;
-            indexLigne = (i - 2) / nbColones;
+            indexColonne = (i - 4) % nbColones;
+            indexLigne = (i - 4) / nbColones;
 
-            sommets.push_back(SommetTerrain(indexColonne, indexLigne, entierLu));
+            sommets.push_back(SommetTerrain(indexColonne*dx, indexLigne*dy, entierLu));
          }
          i++;
       }
